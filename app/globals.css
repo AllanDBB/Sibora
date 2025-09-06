@@ -1,0 +1,115 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+}
+
+/* Smooth section entrance */
+.reveal {
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 600ms ease, transform 600ms ease;
+}
+.reveal.in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Nice focus rings */
+.focus-ring {
+  @apply outline-none ring-2 ring-brandBlue/40 ring-offset-2 ring-offset-offwhite;
+}
+
+/* Button base */
+.btn {
+  @apply inline-flex items-center justify-center gap-2 font-medium rounded-xl transition-transform duration-200 ease-out active:scale-[0.98];
+}
+.btn-primary {
+  @apply bg-[color:var(--btn-bg,theme(colors.brandTeal))] text-white shadow-soft hover:shadow-glow;
+  background-image: theme(backgroundImage.brand-gradient);
+}
+.btn-ghost {
+  @apply bg-white/90 backdrop-blur border border-black/10 text-ink hover:bg-white hover:border-black/20;
+}
+
+/* Card styles */
+.card {
+  @apply rounded-2xl bg-white shadow-sm border border-black/5;
+}
+.card-hover {
+  @apply transition-all duration-200 hover:shadow-soft hover:-translate-y-0.5;
+}
+
+/* Section spacing */
+.section {
+  @apply py-16 md:py-24;
+}
+
+/* Extra aesthetics for hero */
+@keyframes gradient-x {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+@keyframes floaty {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-6px); }
+  100% { transform: translateY(0px); }
+}
+.animate-gradient {
+  background-size: 200% 200%;
+  animation: gradient-x 10s ease infinite;
+}
+.float-slow {
+  animation: floaty 6s ease-in-out infinite;
+}
+.spin-slow {
+  animation: slowspin 24s linear infinite;
+}
+@keyframes slowspin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+.glass {
+  @apply bg-white/85 backdrop-blur border border-black/10 shadow-sm;
+}
+.bg-grid {
+  background-image:
+    linear-gradient(to right, rgba(2,132,199,0.07) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(2,132,199,0.07) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+/* Captivating hero background */
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    radial-gradient(600px 300px at 12% 8%, rgba(101,205,193,0.35), transparent 60%),
+    radial-gradient(800px 400px at 88% 12%, rgba(22,167,163,0.30), transparent 65%),
+    radial-gradient(700px 360px at 50% 100%, rgba(18,126,173,0.28), transparent 60%);
+  filter: blur(24px);
+}
+.hero-beam {
+  position: absolute;
+  left: -20%;
+  right: -20%;
+  height: 160px;
+  background: linear-gradient(90deg, transparent, rgba(101,205,193,0.18), rgba(18,126,173,0.18), transparent);
+  filter: blur(22px);
+  opacity: .7;
+  animation: beam-slide 12s ease-in-out infinite alternate;
+}
+.hero-beam.thin {
+  height: 120px;
+  filter: blur(18px);
+  opacity: .6;
+  animation-duration: 14s;
+}
+@keyframes beam-slide {
+  0% { transform: translateX(-25%) rotate(var(--rot,8deg)); }
+  100% { transform: translateX(25%) rotate(var(--rot,8deg)); }
+}
