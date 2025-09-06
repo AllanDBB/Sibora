@@ -1,22 +1,28 @@
 export default function QueEs() {
   return (
-    <section id="que-es" className="section">
+    <section id="que-es" className="relative section overflow-hidden">
+      {/* Subtle ambient background for higher contrast */}
+      <div className="section-ambient section-ambient--subtle" />
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-3xl text-center reveal in-view">
           <h2 className="text-3xl sm:text-4xl font-semibold">¿Qué es Siböra?</h2>
           <p className="mt-4 text-ink/70">
-            Siböra es una plataforma que transforma tus acciones ambientales en recompensas. Gamificación, blockchain y economía circular para un futuro regenerativo.
+            Siböra es una plataforma que transforma tus acciones ambientales en valor real. Integra gamificación, trazabilidad en blockchain y economía circular, con validación por NFC en centrales de entrega.
           </p>
+          <div className="mt-3 flex items-center justify-center gap-2 text-xs">
+            <span className="glass px-2.5 py-1 rounded-full">NFC integrado</span>
+            <span className="glass px-2.5 py-1 rounded-full">Mini‑juego / Proof‑of‑Work</span>
+          </div>
         </div>
         <div className="mt-10 grid sm:grid-cols-3 gap-4">
           <Feature icon={<GameIcon />} title="Gamificación">
-            Estilo Pokémon GO: explora, limpia, sube de nivel.
+            Explora tu ciudad, registra limpiezas y sube de nivel.
           </Feature>
           <Feature icon={<ChainIcon />} title="Trazabilidad">
-            Blockchain para verificar y dar confianza.
+            Evidencias verificables en blockchain para auditorías, sin greenwashing.
           </Feature>
           <Feature icon={<CoinIcon />} title="Recompensas">
-            Gana tokens con valor real y canjeable.
+            Gana eco‑tokens canjeables por beneficios, productos y experiencias.
           </Feature>
         </div>
       </div>

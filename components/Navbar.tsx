@@ -32,11 +32,10 @@ export default function Navbar() {
           ))}
         </nav>
         <div className="hidden md:flex items-center gap-3">
-          <a href="#cta" className="btn btn-ghost py-2 px-3">Ver demo</a>
-          <a href="#cta" className="btn btn-primary py-2 px-3">Unirse a la beta</a>
+          <a href="#apps" className="btn btn-primary py-2 px-3">Ver demo</a>
         </div>
         <div className="md:hidden">
-          <a href="#cta" className="btn btn-primary py-2 px-3">Ver demo</a>
+          <a href="#apps" className="btn btn-primary py-2 px-3">Ver demo</a>
         </div>
       </div>
       <div className="pointer-events-none absolute inset-x-0 -bottom-px h-px bg-gradient-to-r from-brandMint/0 via-brandMint/60 to-brandBlue/0" />

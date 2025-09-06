@@ -4,7 +4,6 @@ import QueEs from '@/components/QueEs'
 import Apps from '@/components/Apps'
 import Beneficios from '@/components/Beneficios'
 import ComoFunciona from '@/components/ComoFunciona'
-import CTA from '@/components/CTA'
 import Footer from '@/components/Footer'
 import ClientReveal from '@/components/ClientReveal'
 
@@ -23,10 +22,8 @@ export default function Page() {
         <Apps />
         <Beneficios />
         <ComoFunciona />
-        <CTA />
       </ClientReveal>
       <Footer />
     </main>
   )
 }
-

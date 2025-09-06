@@ -113,3 +113,90 @@
   0% { transform: translateX(-25%) rotate(var(--rot,8deg)); }
   100% { transform: translateX(25%) rotate(var(--rot,8deg)); }
 }
+
+/* Reusable ambient section background for synergy */
+.section-ambient {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: -1;
+  background-image:
+    /* grid layer */
+    linear-gradient(to right, rgba(18,126,173,0.06) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(18,126,173,0.06) 1px, transparent 1px),
+    /* soft radial gradient layer (matches hero style) */
+    theme(backgroundImage.radial-fade);
+  background-size: 24px 24px, 24px 24px, cover;
+}
+.section-ambient::before,
+.section-ambient::after {
+  content: "";
+  position: absolute;
+  border-radius: 9999px;
+  filter: blur(42px);
+}
+.section-ambient::before {
+  top: -40px;
+  left: 22%;
+  width: 220px;
+  height: 220px;
+  background: rgba(101,205,193,0.35); /* brandMint */
+}
+.section-ambient::after {
+  bottom: -52px;
+  right: 18%;
+  width: 260px;
+  height: 260px;
+  background: rgba(18,126,173,0.25); /* brandBlue */
+}
+
+/* Subtle variant: lighter, whiter background for higher contrast */
+.section-ambient.section-ambient--subtle {
+  background-image:
+    linear-gradient(to right, rgba(18,126,173,0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(18,126,173,0.03) 1px, transparent 1px);
+  background-size: 24px 24px, 24px 24px;
+}
+.section-ambient.section-ambient--subtle::before {
+  top: -24px;
+  left: 28%;
+  width: 160px;
+  height: 160px;
+  filter: blur(36px);
+  background: rgba(101,205,193,0.25);
+  opacity: 0.14;
+}
+.section-ambient.section-ambient--subtle::after {
+  bottom: -32px;
+  right: 24%;
+  width: 180px;
+  height: 180px;
+  filter: blur(36px);
+  background: rgba(18,126,173,0.18);
+  opacity: 0.12;
+}
+
+/* Benefits variant: warm accent gradient, subtle grid */
+.section-ambient.section-ambient--benefits {
+  background-image:
+    linear-gradient(to right, rgba(255,179,71,0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255,179,71,0.04) 1px, transparent 1px),
+    linear-gradient(135deg, rgba(254,158,0,0.08) 0%, rgba(255,179,71,0.08) 100%);
+  background-size: 24px 24px, 24px 24px, cover;
+}
+.section-ambient.section-ambient--benefits::before {
+  top: -36px;
+  left: 16%;
+  width: 200px;
+  height: 200px;
+  filter: blur(40px);
+  background: rgba(255,179,71,0.28);
+}
+.section-ambient.section-ambient--benefits::after {
+  bottom: -44px;
+  right: 20%;
+  width: 220px;
+  height: 220px;
+  filter: blur(40px);
+  background: rgba(254,158,0,0.26);
+}
