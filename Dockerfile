@@ -16,14 +16,15 @@ WORKDIR /app
 ENV NODE_ENV=production
 ENV NEXT_TELEMETRY_DISABLED=1
 ENV PORT=5100
+ENV HOSTNAME=0.0.0.0
 
 # Copy build output and production deps
 COPY --from=builder /app/.next ./.next
 COPY --from=builder /app/public ./public
 COPY --from=builder /app/package*.json ./
+COPY --from=builder /app/next.config.mjs ./next.config.mjs
 COPY --from=builder /app/node_modules ./node_modules
 
 EXPOSE 5100
 
-CMD ["npm","run","start","--","-p","5100"]
-
+CMD ["npm","run","start","--","-p","5100","-H","0.0.0.0"]

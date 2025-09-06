@@ -1,12 +1,13 @@
-version: '3.8'
 services:
   web:
     build: .
+    image: sibora-web:latest
     container_name: sibora-web
     ports:
       - "5100:5100"
     environment:
       NEXT_TELEMETRY_DISABLED: '1'
       PORT: '5100'
+      HOSTNAME: '0.0.0.0'
     restart: unless-stopped
-
+    command: ["npm","run","start","--","-p","5100","-H","0.0.0.0"]
